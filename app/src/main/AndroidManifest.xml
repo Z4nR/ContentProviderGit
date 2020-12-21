@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zulham.githubusersearch">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <permission android:name="com.zulham.githubusersearch.READ_DATABASE" android:protectionLevel="normal"/>
+    <permission android:name="com.zulham.githubusersearch.WRITE_DATABASE" android:protectionLevel="normal"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <provider
+            android:name=".Provider.GitProvider"
+            android:authorities="com.zulham.githubusersearch"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="com.zulham.githubusersearch.READ_DATABASE"
+            android:writePermission="com.zulham.githubusersearch.WRITE_DATABASE"/>
+
+        <activity
+            android:name=".View.FavouriteActivity"
+            android:parentActivityName=".View.MainActivity" />
+        <activity
+            android:name=".View.SettingActivity"
+            android:parentActivityName=".View.MainActivity" />
+
+        <receiver
+            android:name=".Utils.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".View.SplashScreen"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.DetailActivity"
+            android:parentActivityName=".View.MainActivity" />
+        <activity
+            android:name=".View.MainActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="" />
+    </application>
+
+</manifest>
