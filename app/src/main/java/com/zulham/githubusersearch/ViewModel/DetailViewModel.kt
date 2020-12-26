@@ -47,10 +47,7 @@ class DetailViewModel: ViewModel() {
 
                         detail.value = user
 
-                    } else {
-
                     }
-
 
                 } catch (e: Exception) {
                     e.message?.let { setError(true, it) }

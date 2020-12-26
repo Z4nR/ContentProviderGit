@@ -77,7 +77,5 @@ class MainFavourite : AppCompatActivity() {
 
     private fun setUpToolbar() {
         supportActionBar?.setTitle("Favourite User")
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
     }
 }

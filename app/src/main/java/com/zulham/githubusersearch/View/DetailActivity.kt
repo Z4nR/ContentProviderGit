@@ -61,13 +61,15 @@ class DetailActivity : AppCompatActivity() {
 
         showLoading(true)
 
-        val user = intent.getParcelableExtra<User>("user")
+        val user = intent.getStringExtra("user")
+
+        Toast.makeText(this, "$user", Toast.LENGTH_LONG).show()
 
         detailViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(DetailViewModel::class.java)
 
         user.let {
-            sectionsPagerAdapter.username = it?.login
-            detailViewModel.setDetail(it?.login)
+            sectionsPagerAdapter.username = it
+            detailViewModel.setDetail(it)
         }
 
         detailViewModel.getIsError().observe(this, {
@@ -83,6 +85,7 @@ class DetailActivity : AppCompatActivity() {
         fav.setOnClickListener{
             statusFavorite = !statusFavorite
             contentValues.put(DatabaseContract.FavColumns.IS_FAV, statusFavorite)
+            contentValues.put(DatabaseContract.FavColumns.LOGIN, user)
 
             when (query){
                 true -> favHelper.update(contentValues.getAsString(DatabaseContract.FavColumns.USER_NAME), contentValues)

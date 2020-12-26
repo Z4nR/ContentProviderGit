@@ -12,28 +12,9 @@ import kotlinx.android.synthetic.main.user.view.*
 
 class FavouriteAdapter(private val favs: ArrayList<FavUser>) : RecyclerView.Adapter<FavouriteAdapter.FavouriteViewHolder>() {
 
-    var listFavUser = ArrayList<FavUser>()
-        set(listFavUser) {
-            if (listFavUser.size > 0) {
-                this.listFavUser.clear()
-            }
-            this.listFavUser.addAll(listFavUser)
-            notifyDataSetChanged()
-        }
-
-    fun addItem(fav: FavUser) {
-        this.listFavUser.add(fav)
-        notifyItemInserted(this.listFavUser.size - 1)
-    }
-
-    fun updateItem(position: Int, fav: FavUser) {
-        this.listFavUser[position] = fav
-        notifyItemChanged(position, fav)
-    }
-
     private var onItemClickCallback: OnItemClickCallback? = null
 
-    fun setOnItemClickCallback(param: OnItemClickCallback) {
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
     }
 

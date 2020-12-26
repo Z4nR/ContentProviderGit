@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.loopj.android.http.AsyncHttpClient.log
 import com.zulham.githubusersearch.Adapter.FavouriteAdapter
 import com.zulham.githubusersearch.Database.db.DatabaseContract.FavColumns.Companion.CONTENT_URI
 import com.zulham.githubusersearch.Database.db.FavHelper
@@ -79,12 +80,14 @@ class FavouriteActivity : AppCompatActivity() {
         favouriteAdapter.setOnItemClickCallback(object : FavouriteAdapter.OnItemClickCallback {
             override fun onItemClicked(data: FavUser) {
                 val intent = Intent(this@FavouriteActivity, DetailActivity::class.java)
-                val user = data
+                val user = data.login
                 intent.putExtra("user", user)
                 startActivity(intent)
             }
 
         })
+
+        log.e(favouriteAdapter.toString(), "masih error kah?")
 
     }
 
