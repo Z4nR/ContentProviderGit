@@ -63,8 +63,6 @@ class DetailActivity : AppCompatActivity() {
 
         val user = intent.getStringExtra("user")
 
-        Toast.makeText(this, "$user", Toast.LENGTH_LONG).show()
-
         detailViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(DetailViewModel::class.java)
 
         user.let {
