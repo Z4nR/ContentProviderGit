@@ -14,7 +14,8 @@ object MappingHelper {
                 val imgUser = getString(getColumnIndexOrThrow(DatabaseContract.FavColumns.IMG_USER))
                 val userID = getInt(getColumnIndexOrThrow(DatabaseContract.FavColumns.USER_ID))
                 val UserName = getString(getColumnIndexOrThrow(DatabaseContract.FavColumns.USER_NAME))
-                favsList.add(FavUser(id, imgUser, userID, UserName))
+                val login = getString(getColumnIndexOrThrow(DatabaseContract.FavColumns.LOGIN))
+                favsList.add(FavUser(id, imgUser, userID, UserName, login))
             }
         }
         return favsList

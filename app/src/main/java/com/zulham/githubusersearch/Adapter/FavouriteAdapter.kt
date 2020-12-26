@@ -30,7 +30,7 @@ class FavouriteAdapter(private val favs: ArrayList<FavUser>) : RecyclerView.Adap
                         .apply(RequestOptions().override(55,55))
                         .into(userImg)
 
-                userId.text = favUser.UserName
+                userId.text = favUser.login
                 IDuser.text = favUser.IDUser.toString()
 
                 itemView.setOnClickListener { onItemClickCallback?.onItemClicked(favUser) }
