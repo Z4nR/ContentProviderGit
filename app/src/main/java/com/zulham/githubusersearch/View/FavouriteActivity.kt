@@ -63,6 +63,8 @@ class FavouriteActivity : AppCompatActivity() {
 
                 listFav.addAll(mapping)
 
+            } else {
+                
             }
         }
     }
